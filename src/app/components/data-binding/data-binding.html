@@ -1,0 +1,43 @@
+<p>data-binding works!</p>
+<table style="width: 100%">
+  <tr>
+    <td>
+      <!-- interpolation -->
+      {{ courseName }}
+    </td>
+    <td>
+      {{ productPrice }}
+    </td>
+    <td><input type="text" value="{{ courseName }}" /></td>
+    <td>
+      <!-- property binding -->
+      <input [type]="inputType" [max]="maxlength" [minLength]="minChar" />
+    </td>
+    <td>
+      <!-- property binding -->
+      <p [class]="myClassName">This is a sample paragraph</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button (click)="showWelcomeMessage()">Show message</button>
+    </td>
+    <td>
+      <button (click)="changeCourseName()">Change Course</button>
+    </td>
+    <td>
+      <select (change)="onCityChange()">
+        <option value="">Pune</option>
+        <option value="">Nagpur</option>
+        <option value="">Bangalore</option>
+      </select>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <!-- ng Model -->
+      <input type="text" [(ngModel)]="courseName" />
+    </td>
+  </tr>
+</table>

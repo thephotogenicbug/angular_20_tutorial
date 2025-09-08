@@ -4,10 +4,11 @@ import { Admin } from "./components/admin/admin";
 import { User } from "./components/user/user";
 import { DataBinding } from './components/data-binding/data-binding';
 import { SignalExample } from './components/signal-example/signal-example';
+import { ControlFlow } from './components/control-flow/control-flow';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Admin, User, DataBinding, SignalExample],
+  imports: [RouterOutlet, Admin, User, DataBinding, SignalExample, ControlFlow],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

@@ -7,6 +7,7 @@ import { User } from './components/user/user';
 import { AttDirective } from './components/att-directive/att-directive';
 import { LifeCycleEvent } from './components/life-cycle-event/life-cycle-event';
 import { Pipes } from './components/pipes/pipes';
+import { GetApi } from './components/get-api/get-api';
 
 export const routes: Routes = [
   {
@@ -40,5 +41,9 @@ export const routes: Routes = [
   {
     path: 'pipes',
     component: Pipes,
+  },
+  {
+    path: 'get-api',
+    component: GetApi,
   },
 ];

@@ -6,6 +6,7 @@ import { SignalExample } from './components/signal-example/signal-example';
 import { User } from './components/user/user';
 import { AttDirective } from './components/att-directive/att-directive';
 import { LifeCycleEvent } from './components/life-cycle-event/life-cycle-event';
+import { Pipes } from './components/pipes/pipes';
 
 export const routes: Routes = [
   {
@@ -35,5 +36,9 @@ export const routes: Routes = [
   {
     path: 'life-cycle-event',
     component: LifeCycleEvent,
+  },
+  {
+    path: 'pipes',
+    component: Pipes,
   },
 ];

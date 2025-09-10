@@ -5,6 +5,7 @@ import { DataBinding } from './components/data-binding/data-binding';
 import { SignalExample } from './components/signal-example/signal-example';
 import { User } from './components/user/user';
 import { AttDirective } from './components/att-directive/att-directive';
+import { LifeCycleEvent } from './components/life-cycle-event/life-cycle-event';
 
 export const routes: Routes = [
   {
@@ -30,5 +31,9 @@ export const routes: Routes = [
   {
     path: 'attribute-directive',
     component: AttDirective,
+  },
+  {
+    path: 'life-cycle-event',
+    component: LifeCycleEvent,
   },
 ];

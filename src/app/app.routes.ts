@@ -10,6 +10,7 @@ import { Pipes } from './components/pipes/pipes';
 import { GetApi } from './components/get-api/get-api';
 import { ReactiveForm } from './components/reactive-form/reactive-form';
 import { PipesNew } from './pipes-new/pipes-new';
+import { ResourceAPI } from './resource-api/resource-api';
 
 export const routes: Routes = [
   {
@@ -55,5 +56,9 @@ export const routes: Routes = [
   {
     path: 'pipes-example',
     component: PipesNew,
+  },
+  {
+    path: 'resource-api',
+    component: ResourceAPI,
   },
 ];

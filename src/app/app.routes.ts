@@ -9,6 +9,7 @@ import { LifeCycleEvent } from './components/life-cycle-event/life-cycle-event';
 import { Pipes } from './components/pipes/pipes';
 import { GetApi } from './components/get-api/get-api';
 import { ReactiveForm } from './components/reactive-form/reactive-form';
+import { PipesNew } from './pipes-new/pipes-new';
 
 export const routes: Routes = [
   {
@@ -50,5 +51,9 @@ export const routes: Routes = [
   {
     path: 'reactive-form',
     component: ReactiveForm,
+  },
+  {
+    path: 'pipes-example',
+    component: PipesNew,
   },
 ];

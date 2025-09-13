@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -13,8 +13,8 @@ export class ReactiveForm implements OnInit {
 
   userForm = new FormGroup({
     userId: new FormControl(0),
-    emailId: new FormControl(''),
-    password: new FormControl(''),
+    emailId: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(5)]),
     fullName: new FormControl(''),
     mobileNo: new FormControl(''),
   });
@@ -35,17 +35,15 @@ export class ReactiveForm implements OnInit {
 
   onSaveUser() {
     const formValue = this.userForm.value;
-    this.http
-      .post('https://api.freeprojectapi.com/api/GoalTracker/register', formValue)
-      .subscribe({
-        next: (res) => {
-          alert('User created');
-          this.getUsers();
-        },
-        error: (err) => {
-          alert('Error: ' + err.error);
-        },
-      });
+    this.http.post('https://api.freeprojectapi.com/api/GoalTracker/register', formValue).subscribe({
+      next: (res) => {
+        alert('User created');
+        this.getUsers();
+      },
+      error: (err) => {
+        alert('Error: ' + err.error);
+      },
+    });
   }
 
   onEdit(item: any) {

@@ -37,38 +37,90 @@
     <div class="card">
       <div class="card-header bg-success text-white">New User</div>
       <div class="card-body">
-        <div class="row">
-          <div class="col-6">
-            <label for=""> Email </label>
-            <input type="text" class="form-control" [(ngModel)]="userObject.emailId" />
-          </div>
-          <div class="col-6">
-            <label for=""> Password </label>
-            <input type="text" class="form-control" [(ngModel)]="userObject.password" />
-          </div>
-          <div class="col-6">
-            <label for=""> Full Name </label>
-            <input type="text" class="form-control" [(ngModel)]="userObject.fullName" />
-          </div>
-          <div class="col-6">
-            <label for=""> Mobile No </label>
-            <input type="text" class="form-control" [(ngModel)]="userObject.mobileNo" />
-          </div>
-        </div>
-        <div class="row pt-3">
-          <div class="col-6 text-center">
-            <button class="btn btn-secondary" (click)="onReset()">Reset</button>
-          </div>
-          <div class="col-6 text-center">
-            @if (userObject.userId == 0) {
+        <form #formValue="ngForm">
+          <div class="row">
+            <div class="col-6">
+              <label for=""> Email </label>
+              <input
+                type="text"
+                #email="ngModel"
+                name="emailId"
+                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                required
+                class="form-control"
+                [(ngModel)]="userObject.emailId"
+              />
+              @if (email.touched) {
+              <div class="text-danger">
+                @if (email.errors?.['required']) {
 
-            <button class="btn btn-success" (click)="onSaveUser()">Save</button>
+                <span>email is required</span>
+                } @if (email.errors?.['pattern']) {
+                <span>email id is invalid</span>
+                }
+              </div>
+              }
+            </div>
+            <div class="col-6">
+              <label for=""> Password </label>
+              <input
+                type="text"
+                #password="ngModel"
+                name="password"
+                required
+                minlength="4"
+                class="form-control"
+                [(ngModel)]="userObject.password"
+              />
+              @if (password.touched) {
+              <div class="text-danger">
+                @if (password.errors?.['required']) {
 
-            }@else{
-            <button class="btn btn-warning" (click)="onUpdateUser()">Update</button>
-            }
+                <span>password is required</span>
+                <br />
+                } @if (password.errors?.['minlength']) {
+                <span>min 4 characters required</span>
+
+                }
+              </div>
+              }
+            </div>
+            <div class="col-6">
+              <label for=""> Full Name </label>
+              <input
+                type="text"
+                class="form-control"
+                name="fullName"
+                [(ngModel)]="userObject.fullName"
+              />
+            </div>
+            <div class="col-6">
+              <label for=""> Mobile No </label>
+              <input
+                type="text"
+                class="form-control"
+                name="mobileNo"
+                [(ngModel)]="userObject.mobileNo"
+              />
+            </div>
           </div>
-        </div>
+          <div class="row pt-3">
+            <div class="col-6 text-center">
+              <button class="btn btn-secondary" (click)="onReset()">Reset</button>
+            </div>
+            <div class="col-6 text-center">
+              @if (userObject.userId == 0) {
+              <!-- {{ formValue.invalid }} -->
+              <button class="btn btn-success" [disabled]="formValue.invalid" (click)="onSaveUser()">
+                Save
+              </button>
+
+              }@else{
+              <button class="btn btn-warning" (click)="onUpdateUser()">Update</button>
+              }
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
